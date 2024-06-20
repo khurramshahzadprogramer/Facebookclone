@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Facebook Clone</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-primary">
+        <a class="navbar-brand" href="#">Facebook</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <form class="form-inline my-2 my-lg-0 ml-auto">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+            <ul class="navbar-nav ml-3">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Profile</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Messages</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Notifications <span class="badge badge-danger">3</span></a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        User
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#" data-toggle="modal" data-target="#editProfileModal">Edit Profile</a>
+                        <a class="dropdown-item" href="#">Settings</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Logout</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <br>
+    
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="sidebar">
+                    <h5>User Profile</h5>
+                    <div class="profile-info">
+                        <img src="img/profile.jpg" alt="Profile Picture" class="img-fluid rounded-circle mb-3">
+                        <p><strong>Username</strong></p>
+                        <p>user@example.com</p>
+                    </div>
+                    <h5>Menu</h5>
+                    <ul class="list-group">
+                        <li class="list-group-item">News Feed</li>
+                        <li class="list-group-item">Messages</li>
+                        <li class="list-group-item">Groups</li>
+                        <li class="list-group-item">Events</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="main-content">
+                    <div class="create-post">
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#createPostModal">
+                            Create Post
+                        </button>
+                    </div>
+                    <div class="posts">
+                        <!-- Posts will be dynamically generated here -->
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="friend-requests">
+                    <h5>Friend Requests</h5>
+                    <ul class="list-group">
+                        <li class="list-group-item">Friend 1 
+                            <button class="btn btn-primary btn-sm float-right accept-btn">Accept</button>
+                            <button class="btn btn-secondary btn-sm float-right decline-btn">Decline</button>
+                        </li>
+                        <li class="list-group-item">Friend 2 
+                            <button class="btn btn-primary btn-sm float-right accept-btn">Accept</button>
+                            <button class="btn btn-secondary btn-sm float-right decline-btn">Decline</button>
+                        </li>
+                        <li class="list-group-item">Friend 3 
+                            <button class="btn btn-primary btn-sm float-right accept-btn">Accept</button>
+                            <button class="btn btn-secondary btn-sm float-right decline-btn">Decline</button>
+                        </li>
+                        <li class="list-group-item">Friend 4 
+                            <button class="btn btn-primary btn-sm float-right accept-btn">Accept</button>
+                            <button class="btn btn-secondary btn-sm float-right decline-btn">Decline</button>
+                        </li>
+                        <li class="list-group-item">Friend 5
+                            <button class="btn btn-primary btn-sm float-right accept-btn">Accept</button>
+                            <button class="btn btn-secondary btn-sm float-right decline-btn">Decline</button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for creating post -->
+    <div class="modal fade" id="createPostModal" tabindex="-1" aria-labelledby="createPostModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="createPostModalLabel">Create Post</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="postForm">
+                        <div class="form-group">
+                            <textarea class="form-control" id="postContent" rows="3" placeholder="What's on your mind?"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Post</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for editing profile -->
+    <div class="modal fade" id="editProfileModal" tabindex="-1" aria-labelledby="editProfileModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="editProfileModalLabel">Edit Profile</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="profileForm">
+                        <div class="form-group">
+                            <label for="profileUsername">Username</label>
+                            <input type="text" class="form-control" id="profileUsername" value="Username">
+                        </div>
+                        <div class="form-group">
+                            <label for="profileEmail">Email</label>
+                            <input type="email" class="form-control" id="profileEmail" value="user@example.com">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Save Changes</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
